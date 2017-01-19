@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+public class CurrencyConverter {
+  public static void main(String[]args) {
+    Scanner choice = new Scanner(System.in);
+    String cur1, cur2, yesno;
+    double amount, peso, usd, euro;
+    
+    do {
+      System.out.print("Welcome to the currency converter. What curency would you like to convert?\n");
+      System.out.println("1: US Dollars    2: Mexican Pesos    3: European Euros");
+      cur1 = choice.next();
+      System.out.print("What would you like to convert it to?\n");
+      System.out.println("1: US Dollars    2: Mexican Pesos    3: European Euros");
+      cur2 = choice.next();
+      
+      if (cur1.equals("1") ) {
+        cur1 = "US Dollars";
+      }
+      if (cur2.equals("1") ) {
+        cur2 = "US Dollars";
+      }
+      if (cur1.equals("2") ) {
+        cur1 = "Mexican Pesos";
+      }
+      if (cur2.equals("2") ) {
+        cur2 = "Mexican Pesos";
+      }
+      if (cur1.equals("3") ) {
+        cur1 = "European Euros";
+      }
+      if (cur2.equals("3") ) {
+        cur2 = "European Euros";
+      }
+      System.out.print("How much " + cur1 + " would you like to convert into " + cur2 + "?");
+      amount = choice.nextDouble();
+      
+      System.out.println(amount + " " + cur1 + ".");
+      System.out.println("Is equal to:");
+      if (cur2 == "Mexican Pesos" && cur1 == "US Dollars") {
+        peso = amount * 21.86;
+        System.out.println(peso + " " + cur2 + ".");
+      }
+      if (cur2 == "Mexican Pesos" && cur1 == "European Euros") {
+        peso = amount * 23.2526;
+        System.out.println(peso + " " + cur2 + ".");
+      }
+      
+      if (cur2 == "US Dollars" && cur1 == "Mexican Pesos") {
+        usd = amount * 0.0457604101158;
+        System.out.println(usd + " " + cur2 + ".");
+      }
+      if (cur2 == "US Dollars" && cur1 == "European Euros") {
+        usd = amount * 1.06245;
+        System.out.println(usd + " " + cur2 + ".");
+      }
+      
+      if (cur2 == "European Euros" && cur1 == "US Dollars") {
+        euro = amount * 0.94415;
+        System.out.println(euro + " " + cur2 + ".");
+      }
+      if (cur2 == "European Euros" && cur1 == "Mexican Pesos") {
+        euro = amount * 0.043;
+        System.out.println(euro + " " + cur2 + ".");
+      }
+      
+      System.out.print("Would you like to use the Currency Converter again?");
+      yesno = choice.next();
+    } while (yesno.equals("yes") );
+  }
+}
